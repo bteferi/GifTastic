@@ -1,45 +1,67 @@
 var topics=["cat","dog","mouse"];
 // Create a loop that appends a button for each string in the array
+//
+// var serch_box_counter=0;
+createbutton ();
+function createbutton (){
+  $("#new_buttons").empty();
+  for (var i=0; i<topics.length; i++){
+      var button=$("<button>");
+          button.addClass("animals");
+          button.attr("data-animal",topics[i]);
+            button.text(topics[i]);
+              $("#new_buttons").append(button);
+
+  }
+};
 
 
 
 $("#search_button").on("click", function(event) {
   event.preventDefault();
   var search_box_value =$("#user_input").val().trim();
+    topics.push( search_box_value);
+    // console.log(topics);
+    createbutton ();
+    // $( "form" ).empty();
 
-  var searched_item=$("<button>");
+   $("form")[0].reset();
 
-    // searched_item.attr("search_box_value")
- $("#new_buttons").append(searched_item);
+
+   $("button").on("click",function()
+   {
+   // console.log("hello");
+         var searched_item=$(this).attr("data-animal");
+   console.log(searched_item);
+
+
+   });
+
 
 
 });
-//
-    // search_item_butto.attr("data-button",search_item_button);
-    //     search_item_button.addClass("button");
-    //
-
-//create a forloop that takes a user input and place it in the search box
-
-// when user click on the page this should grab 10 non moving gifs and place them on my page
-
-// under every gif display its rating - Under every gif, display its rating (PG, G, so on).
-
-//This data is provided by the GIPHY API.
-
-// move to direction 6 which is to add a form
 
 //=======================================================================================
-//setting up api
-// var user_input =[];
-//
-// var queryURL="http://api.giphy.com/v1/gifs/search?q=cat+food&api_key=T8WQV5Kku6r1KgW6Or6N7BvMpsKTjmcT";
-//
-// $.ajax({url:queryURL,
-//   method:"GET"})
-// .done(function(response){
-//   console.log(response);
-// })
+
+$("button").on("click",function()
+{
+// console.log("hello");
+      var searched_item=$(this).attr("data-animal");
+console.log(searched_item);
+
+    // var queryURL="http://api.giphy.com/v1/gifs/search?q=cat+food&api_key=T8WQV5Kku6r1KgW6Or6N7BvMpsKTjmcT";
+    //
+    // $.ajax({url:queryURL,
+    //   method:"GET"})
+    // .done(function(response){
+    //   console.log(response);
+    // })
+
+});
+
+
+
+
 
 
 //============================================================
