@@ -69,7 +69,7 @@ $("#gifs").empty();
 
     for (i=0; i<data.length; i++){
           var rating = response.data[i].rating;
-            var image= response.data[i].images.original.mp4;
+            var image= response.data[i].images.fixed_height.url;
 
 
             console.log(rating);
@@ -101,8 +101,7 @@ $("#gifs").empty();
 $("button").on("click",myApiCall);
 
 
-
-
+// var image_still = response.data[i].images.original_still.url;
 
 
 //============================================================
